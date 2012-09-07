@@ -1,0 +1,28 @@
+div#widget {
+	display: table;
+	cursor: pointer;
+}
+
+div#widget > * {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+img#appIcon {
+    padding-right: 5px;
+}
+
+span#counter {
+    font-size: 10px;
+	border-radius: 5px;
+	padding: 0px 3px;
+    font-family: Arial;
+	color: #999;
+}
+
+span#counter.newitems {
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6), rgba(238, 238, 238, 0.6));
+	border: solid 1px #aaa;
+	color: #333;
+	font-weight: bold;
+}

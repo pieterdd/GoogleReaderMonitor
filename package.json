@@ -1,0 +1,9 @@
+{
+    "name": "greadmon", 
+    "license": "CC 3.0 BY-SA, modifications must use different branding", 
+    "author": "Pieter De Decker", 
+    "version": "0.1", 
+    "fullName": "Google Reader Monitor", 
+    "id": "jid1-BZJ94aGuBF7Hcg", 
+    "description": "Displays Google Reader's unread count in the status bar."
+}
