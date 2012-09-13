@@ -2,7 +2,7 @@
 
 // Every so often, we'll receive the updated item feed. It's our job
 // to parse it.
-self.on("message", function(json) {
+self.port.on("fetchedUpdate", function(json) {
 	if (json == null) {
 		$("span#counter").attr("class", "");
 		$("span#counter").text("N/A");
