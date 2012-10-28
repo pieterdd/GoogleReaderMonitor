@@ -7,17 +7,15 @@ self.port.on("fetchedUpdate", function(json) {
 		$("span#counter").attr("class", "");
 		$("span#counter").text("N/A");
 	} else {
-		var newTotal = 0;
+		var newTotal = "error";
 		for (var item in json.unreadcounts) {
-			newTotal += json.unreadcounts[item].count;
+			if (isIDFromReadingList(json.unreadcounts[item].id, "/state/com.google/reading-list")) {
+				newTotal = json.unreadcounts[item].count;
+			}
 		}
 		
-		// Since the cumulative reading list count is a separate part of the
-		// unread count info, we have to divide the total by 2.
-		newTotal /= 2;
+		// Update widget
 		$("span#counter").text(newTotal);
-		
-		// Update style
 		if (newTotal > 0)
 			$("span#counter").attr("class", "newitems");
 		else
@@ -27,3 +25,8 @@ self.port.on("fetchedUpdate", function(json) {
 	// Reports the current width of the widget
 	self.port.emit("widthReported", $("div#widget").width());
 });
+
+function isIDFromReadingList(input) {
+	var pattern = /^user\/[0-9]+\/state\/com.google\/reading-list/;
+	return (input.match(pattern) != null);
+}
